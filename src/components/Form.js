@@ -1,7 +1,7 @@
 import './Form.css'
 import React, { useState } from 'react'
 import Comment from './Comment'
-function Form(){
+function Form(props){
 
     const [name, setName] = useState('')
     const [text, setText] = useState('')
@@ -25,9 +25,7 @@ function Form(){
             Date: new Date(date)
         }
 
-        function giveData(){
-            
-        }
+
 
         setDate('')
         setName('')
@@ -37,7 +35,6 @@ function Form(){
 
 
     return(
-        <div>
 
         <form onSubmit={() => {Submitchik()}}>
             <div>
@@ -52,8 +49,6 @@ function Form(){
             </div>
         </form>
 
-            <Comment data={} />
-        </div>
     )
 }
 

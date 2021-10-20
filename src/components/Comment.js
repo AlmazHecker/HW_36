@@ -7,6 +7,7 @@ function Comment(props){
 
     return(
         <div>
+            <Form />
         </div>
     )
 }
