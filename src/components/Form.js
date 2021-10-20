@@ -1,6 +1,6 @@
 import './Form.css'
 import React, { useState } from 'react'
-
+import Comment from './Comment'
 function Form(){
 
     const [name, setName] = useState('')
@@ -25,6 +25,10 @@ function Form(){
             Date: new Date(date)
         }
 
+        function giveData(){
+            
+        }
+
         setDate('')
         setName('')
         setText('')
@@ -33,6 +37,8 @@ function Form(){
 
 
     return(
+        <div>
+
         <form onSubmit={() => {Submitchik()}}>
             <div>
                 <p>Name</p>
@@ -45,6 +51,9 @@ function Form(){
                 <input type='date' onChange={() => {DateChangeHandler()}} value={date}/>
             </div>
         </form>
+
+            <Comment data={} />
+        </div>
     )
 }
 
