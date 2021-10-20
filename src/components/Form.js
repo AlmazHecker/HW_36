@@ -1,9 +1,10 @@
 import './Form.css'
 import React, { useState } from 'react'
+import Comment from './Comment'
 function Form(props){
 
     const [name, setName] = useState('')
-    const [comment, setText] = useState('')
+    const [text, setText] = useState('')
     const [date, setDate] = useState('')
 
     function NameChangeHandler(e){
@@ -20,10 +21,10 @@ function Form(props){
         e.preventDefault();
         let data = {
             name: name,
-            comment: comment,
-            date: new Date(date).toLocaleString()
+            comment: text,
+            date: date.toString()
         }
-        console.log(data);
+
         props.add(data)
 
         setDate('')
@@ -34,7 +35,6 @@ function Form(props){
 
 
     return(
-
         <div>
 
         <form onSubmit={() => {Submitchik()}}>
@@ -43,15 +43,15 @@ function Form(props){
                 <input type='text' onChange={(e) => NameChangeHandler(e)} value={name}/>
                 
                 <p>text</p>
-                <input type='text' onChange={(e) => TextChangeHandler(e)} value={comment}/>
+                <input type='text' onChange={(e) => TextChangeHandler(e)} value={text}/>
 
                 <p>Date</p>
                 <input type='date' onChange={(e) => DateChangeHandler(e)} value={date}/>
-
-                <button onClick={(e) => Submitchik(e)}>Add</button>
             </div>
+            <button type='submit' onClick={(e) => {Submitchik(e)}}>add</button>
         </form>
         </div>
+
     )
 }
 

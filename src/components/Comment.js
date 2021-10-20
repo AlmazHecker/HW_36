@@ -19,18 +19,23 @@ function Comment(props){
     return(
     <div>
         <Form add={addToData}/>
-    {
-        data.map(item => {
-            console.log(item.date);
-            return <div>
-                    <p>{item.name}</p>
-                    <p>{item.comment}</p>
-                    <p>{item.date}</p>
-                </div>
-        })
-    }
-            
+        
+        <div>
+        {
+            data.map(item => {
+                return <div>
+                    <div>
+                        <span className='Author'>{item.name}</span> 
+                        <span> • </span> 
+                        <span className='Time'>{item.date}</span>
+                    </div>
+                        <p>{item.comment}</p>
+                    </div>
+            })
+        }
         </div>
+            
+    </div>
     )
 }
 

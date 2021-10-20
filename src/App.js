@@ -1,6 +1,5 @@
-import Comment from './components/Comment'
 import React from 'react';
-
+import Comment from './components/Comment';
 function App() {
 
 
