@@ -1,13 +1,21 @@
 import './Comment.css'
-import Form from './Form';
 
 function Comment(props){
 
     
 
     return(
-        <div>
-            <Form />
+    <div>
+    {
+        props.data.map(item => {
+            return <div>
+                    <p>{item.name}</p>
+                    <p>{item.comment}</p>
+                    <p>{item.date}</p>
+                </div>
+        })
+    }
+            
         </div>
     )
 }

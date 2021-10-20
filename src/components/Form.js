@@ -4,14 +4,14 @@ import Comment from './Comment'
 function Form(props){
 
     const [name, setName] = useState('')
-    const [text, setText] = useState('')
+    const [comment, setText] = useState('')
     const [date, setDate] = useState('')
 
     function NameChangeHandler(e){
-        setDate(e.target.value)
+        setName(e.target.value)
     }
     function TextChangeHandler(e){
-        setDate(e.target.value)
+        setText(e.target.value)
     }
     function DateChangeHandler(e){
         setDate(e.target.value)
@@ -21,11 +21,11 @@ function Form(props){
         e.preventDefault();
         let data = {
             name: name,
-            text: text,
+            comment: comment,
             Date: new Date(date)
         }
 
-
+        props.add(data)
 
         setDate('')
         setName('')
@@ -39,13 +39,15 @@ function Form(props){
         <form onSubmit={() => {Submitchik()}}>
             <div>
                 <p>Name</p>
-                <input type='text' onChange={() => {NameChangeHandler()}} value={name}/>
+                <input type='text' onChange={(e) => NameChangeHandler(e)} value={name}/>
                 
                 <p>text</p>
-                <input type='text' onChange={() => {TextChangeHandler()}} value={text}/>
+                <input type='text' onChange={(e) => TextChangeHandler(e)} value={comment}/>
 
                 <p>Date</p>
-                <input type='date' onChange={() => {DateChangeHandler()}} value={date}/>
+                <input type='date' onChange={(e) => DateChangeHandler(e)} value={date}/>
+
+                <button onClick={(e) => Submitchik(e)}>Add</button>
             </div>
         </form>
 
