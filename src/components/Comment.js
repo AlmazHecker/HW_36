@@ -2,7 +2,7 @@ import './Comment.css'
 import Form from './Form';
 import React, { useState } from 'react';
 
-function Comment(props){
+function Comment(){
 
     
     let DATA = []
@@ -17,16 +17,18 @@ function Comment(props){
     }
 
     return(
-    <div>
-        <Form add={addToData}/>
-        
-        <div>
+    <div className='wrap'>
+        <div className='form'>
+            <Form add={addToData}/>
+        </div>
+
+        <div className='comment'>
         {
             data.map(item => {
                 return <div>
                     <div>
                         <span className='Author'>{item.name}</span> 
-                        <span> • </span> 
+                        • 
                         <span className='Time'>{item.date}</span>
                     </div>
                         <p>{item.comment}</p>

@@ -6,6 +6,18 @@
     color: rgb(180,189,195);
 }
 
-.tochka{
-    color: rgb(156,167,175);
+.wrap{
+    border: 5px solid green;
+    width: 600px;
+    height: 400px;
+    display: flex;
+}
+.form{
+    border: 1px solid green;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

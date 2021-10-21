@@ -1,20 +1,15 @@
 import './Form.css'
 import React, { useState } from 'react'
-import Comment from './Comment'
 function Form(props){
 
     const [name, setName] = useState('')
     const [text, setText] = useState('')
-    const [date, setDate] = useState('')
 
     function NameChangeHandler(e){
         setName(e.target.value)
     }
     function TextChangeHandler(e){
         setText(e.target.value)
-    }
-    function DateChangeHandler(e){
-        setDate(e.target.value)
     }
 
 
@@ -33,10 +28,11 @@ function Form(props){
             comment: text,
             date: res
         }
-
+        if(!name || !text || ''){
+            return alert("Какое то поле осталось пустым :(")
+        }
         props.add(data)
 
-        setDate('')
         setName('')
         setText('')
 
@@ -44,22 +40,18 @@ function Form(props){
 
 
     return(
-        <div>
-
-        <form onSubmit={() => {Submitchik()}}>
+        
+        <form onSubmit={Submitchik}>
             <div>
                 <p>Name</p>
                 <input type='text' onChange={(e) => NameChangeHandler(e)} value={name}/>
                 
-                <p>text</p>
+                <p>Comment</p>
                 <input type='text' onChange={(e) => TextChangeHandler(e)} value={text}/>
 
-                <p>Date</p>
-                <input type='date' onChange={(e) => DateChangeHandler(e)} value={date}/>
             </div>
-            <button type='submit' onClick={(e) => {Submitchik(e)}}>add</button>
+            <button type='submit' onClick={Submitchik}>add</button>
         </form>
-        </div>
 
     )
 }
