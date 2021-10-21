@@ -17,12 +17,21 @@ function Form(props){
         setDate(e.target.value)
     }
 
+
+    var d = new Date()
+
+    var res = [d.getHours(), d.getMinutes(), d.getSeconds()].map(function (x) {
+    return x < 10 ? "0" + x : x
+    }).join(":")
+
+    console.log(res)
+
     function Submitchik(e){
         e.preventDefault();
         let data = {
             name: name,
             comment: text,
-            date: date.toString()
+            date: res
         }
 
         props.add(data)
